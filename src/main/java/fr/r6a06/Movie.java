@@ -6,19 +6,34 @@ public class Movie {
     public static final int  NEW_RELEASE = 1;
 
     private String _title;
-    private int _priceCode;
+    private Price _price;
 
     public Movie(String title, int priceCode) {
         _title = title;
-        _priceCode = priceCode;
+        setPriceCode(priceCode);
     }
     public int getPriceCode() {
-        return _priceCode;
+        return _price.getPriceCode();
     }
-    public void setPriceCode(int arg) {
-        _priceCode = arg;
+
+    public void setPriceCode(int priceCode) {
+       _price = new PriceBuilder().withPriceCode(priceCode).build();
     }
     public String getTitle (){
         return _title;
     };
+
+    public double getCharge(int daysRented){
+        return this._price.getCharge(daysRented);
+    }
+
+
+    public int getFrequentRenterPoints(int daysRented) {
+
+        if ((this._price.getPriceCode() == NEW_RELEASE) &&
+                daysRented > 1)
+            return 2;
+        else
+            return 1;
+    }
 }
