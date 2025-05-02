@@ -1,4 +1,4 @@
-# TP de refactorisation de code
+# Refactorisation de code
 
 Ce dépôt contient le code Java résultant d'un TP de maintenance applicative axé sur l'amélioration de la qualité du code par le biais d'un refactoring complet.
 
